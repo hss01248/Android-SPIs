@@ -1,4 +1,4 @@
-Android SPI
+# Android SPI
 
 
 
@@ -70,3 +70,48 @@ api 'com.github.hss01248.Android-SPIs:android-spis:1.0.0'
 # 其他类java spi框架
 
 [sp](https://github.com/luqinx/sp)
+
+
+
+# java spi在Android里的表现
+
+```java
+    private void javaSpi() {
+        ServiceLoader<ICallbackTestJava> serviceLoader = ServiceLoader.load(ICallbackTestJava.class);
+        Log.w("AndroidSpis2", "java spi: "+serviceLoader.toString());
+
+//遍历服务
+        for (ICallbackTestJava impl : serviceLoader) {
+            impl.run2();
+        }
+    }
+```
+
+log:
+
+```tex
+java spi: java.util.ServiceLoader[com.hss01248.module_test_java_spi.ICallbackTestJava]
+CallbackTestJavaImpl3---> run---module_test_java_spi3
+CallbackTestJavaImpl---> run--module_test_java_spi2
+CallbackTestJavaImpl---> run---module_test_java_spi1
+```
+
+均可使用google的autoservice自动生成resources/META-INF/services内相关内容
+
+```groovy
+    implementation 'com.google.auto.service:auto-service:1.0'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0'
+```
+
+```java
+@Keep
+@AutoService(ICallbackTestJava.class)
+public class CallbackTestJavaImpl implements ICallbackTestJava{
+    @Override
+    public void run2() {
+        Log.w("AndroidSpis2","CallbackTestJavaImpl---> run---module_test_java_spi1");
+
+    }
+}
+```
+
