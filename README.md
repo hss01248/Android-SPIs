@@ -63,3 +63,8 @@ W/AndroidSpis: [com.hss01248.android_spi.CallbackTestImpl2@bd7d8dd, com.hss01248
 api 'com.github.hss01248.Android-SPIs:android-spis:1.0.0'
 ```
 
+
+
+# 其他类java spi框架
+
+[sp](https://github.com/luqinx/sp)

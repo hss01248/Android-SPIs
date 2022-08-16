@@ -1,3 +1,5 @@
+include ':module-test-java-spi'
+include ':module-test-java-spi2'
 include ':module-test'
 include ':android-spis'
 include ':app'

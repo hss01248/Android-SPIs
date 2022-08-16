@@ -7,9 +7,12 @@ import android.util.Log;
 
 import com.hss01248.android.spi.AndroidSpisReadUtil;
 import com.hss01248.module_test.ICallbackTest1;
+import com.hss01248.module_test_java_spi.ICallbackTestJava;
+
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.ServiceLoader;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,5 +24,18 @@ public class MainActivity extends AppCompatActivity {
 
         List<ICallbackTest1> classAndNewInstances = AndroidSpisReadUtil.findClassAndNewInstances(getApplicationContext(), ICallbackTest1.class);
         Log.w("AndroidSpis", Arrays.toString(classAndNewInstances.toArray()));
+
+
+
+        javaSpi();
+    }
+
+    private void javaSpi() {
+        ServiceLoader<ICallbackTestJava> serviceLoader = ServiceLoader.load(ICallbackTestJava.class);
+
+//遍历服务
+        for (ICallbackTestJava impl : serviceLoader) {
+            impl.run2();
+        }
     }
 }
