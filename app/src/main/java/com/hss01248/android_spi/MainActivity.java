@@ -3,10 +3,12 @@ package com.hss01248.android_spi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.hss01248.android.spi.AndroidSpisReadUtil;
 import com.hss01248.module_test.ICallbackTest1;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,5 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         List<String> classes = AndroidSpisReadUtil.findClasses(getApplicationContext(), ICallbackTest1.class);
+
+        List<ICallbackTest1> classAndNewInstances = AndroidSpisReadUtil.findClassAndNewInstances(getApplicationContext(), ICallbackTest1.class);
+        Log.w("AndroidSpis", Arrays.toString(classAndNewInstances.toArray()));
     }
 }

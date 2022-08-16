@@ -33,6 +33,23 @@ public class AndroidSpisReadUtil {
         return configs;
     }
 
+    public static <T> List<T> findClassAndNewInstances(Context context, Class<T> interfaceOrSuperClass){
+        List<T> objects = new ArrayList<>();
+        List<String> classes = findClasses(context, interfaceOrSuperClass);
+        if(classes.isEmpty()){
+            return objects;
+        }
+        for (String aClass : classes) {
+            try {
+                Class<?> aClass1 =  Class.forName(aClass);
+                T t = (T) aClass1.newInstance();
+                objects.add(t);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
+        return objects;
+    }
 /*  public   static    Object newInstance2(Class tClass){
         try {
             Method getInstance = tClass.getDeclaredMethod("getInstance");

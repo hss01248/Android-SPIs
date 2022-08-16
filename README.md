@@ -36,6 +36,8 @@ assets/androidSpis/接口名/实现类名
 
 ```tex
 D/AndroidSpis: find classes in assets/androidSpis/com.hss01248.module_test.ICallbackTest1,list: [com.hss01248.android_spi.CallbackTestImpl2, com.hss01248.module_test.CallbackTestImpl]
+
+W/AndroidSpis: [com.hss01248.android_spi.CallbackTestImpl2@bd7d8dd, com.hss01248.module_test.CallbackTestImpl@6e8dc52]
 ```
 
 # 使用
@@ -43,6 +45,15 @@ D/AndroidSpis: find classes in assets/androidSpis/com.hss01248.module_test.ICall
 * 1 接口/父类, 及其实现/子类都加上@Keep注解
 * 2在assets/androidSpis/接口名或父类名(全路径类名)文件夹下,建一个或多个空文件,文件名为子类全路径名
 * 3 使用时,通过AndroidSpisReadUtil.findClasses(this, 接口/父类.class)拿到List<String>,然后反射使用.
+* ​    也可使用AndroidSpisReadUtil.findClassAndNewInstances拿到 List<T>
+
+```java
+ List<String> classes = AndroidSpisReadUtil.findClasses(this, ICallbackTest1.class);
+
+        List<ICallbackTest1> classAndNewInstances = AndroidSpisReadUtil.findClassAndNewInstances(this, ICallbackTest1.class);
+```
+
+
 
 ### gradle依赖:
 
