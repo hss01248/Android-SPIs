@@ -40,4 +40,6 @@ dependencies {
     implementation project(":module-test")
     implementation project(":module-test-java-spi")
     implementation project(":module-test-java-spi2")
+    implementation 'com.google.auto.service:auto-service:1.0'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0'
 }

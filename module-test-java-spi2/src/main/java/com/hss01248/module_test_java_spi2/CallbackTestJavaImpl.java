@@ -18,7 +18,7 @@ import com.hss01248.module_test_java_spi.ICallbackTestJava;
 public class CallbackTestJavaImpl implements ICallbackTestJava{
     @Override
     public void run2() {
-        Log.w("java spi","CallbackTestJavaImpl---> run--module_test_java_spi2");
+        Log.w("AndroidSpis2","CallbackTestJavaImpl---> run--module_test_java_spi2");
 
     }
 }

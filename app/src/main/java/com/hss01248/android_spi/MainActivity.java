@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void javaSpi() {
         ServiceLoader<ICallbackTestJava> serviceLoader = ServiceLoader.load(ICallbackTestJava.class);
+        Log.w("AndroidSpis2", "java spi: "+serviceLoader.toString());
 
 //遍历服务
         for (ICallbackTestJava impl : serviceLoader) {

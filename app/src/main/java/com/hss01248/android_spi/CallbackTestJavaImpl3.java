@@ -1,10 +1,11 @@
-package com.hss01248.module_test_java_spi;
+package com.hss01248.android_spi;
 
 import android.util.Log;
 
 import androidx.annotation.Keep;
 
 import com.google.auto.service.AutoService;
+import com.hss01248.module_test_java_spi.ICallbackTestJava;
 
 
 /**
@@ -15,10 +16,10 @@ import com.google.auto.service.AutoService;
  */
 @Keep
 @AutoService(ICallbackTestJava.class)
-public class CallbackTestJavaImpl implements ICallbackTestJava{
+public class CallbackTestJavaImpl3 implements ICallbackTestJava{
     @Override
     public void run2() {
-        Log.w("AndroidSpis2","CallbackTestJavaImpl---> run---module_test_java_spi1");
+        Log.w("AndroidSpis2","CallbackTestJavaImpl3---> run---module_test_java_spi3");
 
     }
 }
