@@ -1,0 +1,4 @@
+include ':module-test'
+include ':android-spis'
+include ':app'
+rootProject.name = "Android-Spi"
