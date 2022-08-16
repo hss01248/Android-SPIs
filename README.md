@@ -8,11 +8,13 @@ Android SPI
 
 META-INF/services目录,接口名为文件名,文件内容为一行到多行的实现类全限定名.
 
-如果一个接口多个module/jar包都有实现,那么此文件最终会覆盖
+这个机制在Android里依然可用
+
+但如果一个接口多个module/jar包都有实现,那么此文件最终会覆盖.
 
 # Android spis
 
->  怎么处理一个接口多个实现同时处理的情况?
+>  怎么处理一个接口多个实现需要并存的情况?
 
 借用Android 打包时assets文件夹的合并情况,略作更改:
 
@@ -56,4 +58,8 @@ W/AndroidSpis: [com.hss01248.android_spi.CallbackTestImpl2@bd7d8dd, com.hss01248
 
 
 ### gradle依赖:
+
+```groovy
+api 'com.github.hss01248.Android-SPIs:android-spis:1.0.0'
+```
 
